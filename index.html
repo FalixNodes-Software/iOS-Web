@@ -1,0 +1,94 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://kit.fontawesome.com/76c26bec94.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="./src/css/style.css">
+</head>
+<body>
+
+<div class="splashiOS">
+  <img src="https://raw.githubusercontent.com/FalixNodes-Software/FalixNodes-Software/master/Icon.png">
+  <i class="fa fa-circle-o-notch"></i>
+</div>
+
+<div class="tabs">
+  <button class="tablink" onclick="openPage('Home', this)" id="Primary"><i class="fa fa-home"></i> FalixNodes</button>
+  <div class="tabsRight">
+    <button class="tablink" onclick="openPage('Client', this)"><i class="fa fa-address-card"></i></button>
+    <button class="tablink" onclick="openPage('ControlPanel', this)" id="defaultOpen"><i class="fa fa-tasks"></i></button>
+    <button class="tablink" onclick="openPage('About', this)"><i class="fa fa-question"></i></button>
+  </div>
+</div>
+
+<div style="overflow: hidden;" id="Home" class="tabcontent">
+  <div class="inBody">
+    <div class="leftSide">
+      <h1>FalixNodes</h1>
+      <p>A quick access to your servers!</p>
+      <p id="version">v2.0 Beta 4 for iOS</p>
+      <a id="openWeb" href="./Changelog/" target="_blank">Changelog</a> |
+      <a id="openWeb" href="./faq/" target="_blank">FAQ</a>
+    </div>
+  </div>
+</div>
+
+<script>
+  const { remote } = require('electron');
+  
+  export default {
+    name: 'HelloWorld',
+    methods: {
+      openExternalBrowser(e) {
+        remote.shell.openExternal(e.target.href);
+      },
+    },
+  };
+  </script>
+
+<div id="Client" class="tabcontent">
+    <div class="content">
+      <a id="openWeb" href="https://client.falixnodes.net" target="_blank">Open Client</a>
+    </div>
+</div>
+
+<div id="ControlPanel" class="tabcontent">
+    <iframe style="opacity: 0; pointer-events: none;" src="https://gp.falixnodes.net"></iframe>
+    <div class="content">
+        <h1>Panel</h1>
+        <p>Content Unavailable</p>
+    </div>
+</div>
+
+<div id="About" class="tabcontent">
+  <iframe src="https://help.falixnodes.xyz/" allowpopups></iframe>
+</div>
+
+<script>
+function openPage(pageName,elmnt,color) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].style.backgroundColor = "";
+  }
+  document.getElementById(pageName).style.display = "block";
+  elmnt.style.backgroundColor = color;
+}
+
+document.getElementById("defaultOpen").click();
+</script>
+   
+<script>
+	document.addEventListener("keydown", function (e) {
+		if (e.which === 123) {
+			require('remote').getCurrentWindow().toggleDevTools();
+		} else if (e.which === 116) {
+			location.reload();
+		}
+	});
+</script>
+</body>
+</html> 

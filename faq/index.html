@@ -1,0 +1,23 @@
+<html>
+    <body>
+    <h1>Why does the client have to be opened as a seperate web page?</h1>
+    <p>The client uses Discord to log into your account and this app uses iframe to embed certain website FalixNodes. Sadly, embedding Discord is not allowed for iframe, therefore we can't embed the client.</p>
+    <p>However, there is a solution to fixing this issue, since the client is allowed to be embedded, this can only be fixed by owner of FalixNodes. Not confirmed to work 100%, but probably setting up the login button to open the Discord auth into a new tab using <strong>target="_blank"</strong> in the button's code. Then exit this tab after logging into Discord.</p>
+    </body>
+</html>
+
+<style>
+body{
+    background:black;
+    color:white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 32px;
+    padding: 50px;
+}
+h1 {
+    font-size: 50px;
+}
+p{
+    font-size: 44px;
+}
+</style>
